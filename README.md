@@ -7,11 +7,13 @@ This repository contains the GNU AVR Toolchain as formulae for
 AVR is a popular family of microcontrollers, used for example in the
 [Arduino][] project.
 
+Forked because I need support for the xmega128a4u.
+
 Current Versions
 ----------------
 
 - `gcc 4.9.2` and `gcc 4.8.3`
-- `binutils 2.24.0`
+- `binutils 2.25.0`
 - `avr-libc 1.8.1`
 
 Installing homebrew-avr formulae
@@ -60,6 +62,25 @@ $ brew unlink avr-gccXX avr-libcXX
 
 # Then link the latest version
 $ brew link avr-gcc avr-libc
+```
+
+Installing a new binutils version
+---------------------------------
+
+If you install a new version of binutils, you also need to rebuild libc.
+
+```Bash
+# Unlink binutils
+$ brew unlink avr-binutils
+
+# Uninstall libc
+$ brew uninstall avr-libc
+
+# Install new binutils
+$ brew install avr-binutils
+
+# Reinstall libc
+$ brew install avr-libc
 ```
 
 Docs
