@@ -25,7 +25,6 @@ class AvrLibc < Formula
 
         build = `./config.guess`.chomp
 
-        system "make clean"
         system "./configure", "--build=#{build}", "--prefix=#{prefix}", "--host=avr"
         system "make install"
 
