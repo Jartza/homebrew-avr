@@ -1,6 +1,6 @@
 require 'formula'
 
-class AvrDudeAttiny841 < Formula
+class AvrDudeAttiny < Formula
     depends_on 'avrdude'
 
     def install
