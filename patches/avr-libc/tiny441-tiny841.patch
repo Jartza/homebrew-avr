@@ -1,6 +1,38 @@
+diff -rupN avr-libc-1.8.1/avr/lib/avr25/Makefile.am avr-libc-1.8.1-patched/avr/lib/avr25/Makefile.am
+--- avr-libc-1.8.1/avr/lib/avr25/Makefile.am	2014-08-12 22:08:19.000000000 +0300
++++ avr-libc-1.8.1-patched/avr/lib/avr25/Makefile.am	2015-02-17 21:23:47.000000000 +0200
+@@ -28,7 +28,7 @@
+ # POSSIBILITY OF SUCH DAMAGE.
+ #
+ 
+-SUBDIRS =  at86rf401 ata5272 attiny13 attiny13a attiny2313 attiny2313a attiny24 attiny24a attiny25 attiny261 attiny261a attiny4313 attiny43u attiny44 attiny44a attiny45 attiny461 attiny461a attiny48 attiny828 attiny84 attiny84a attiny85 attiny861 attiny861a attiny87 attiny88
++SUBDIRS =  at86rf401 ata5272 attiny13 attiny13a attiny2313 attiny2313a attiny24 attiny24a attiny25 attiny261 attiny261a attiny4313 attiny43u attiny44 attiny44a attiny441 attiny45 attiny461 attiny461a attiny48 attiny828 attiny84 attiny84a attiny841 attiny85 attiny861 attiny861a attiny87 attiny88
+ 
+ AVR_TARGET          = avr25
+ AVR_TARGET_DEFS     = -D__COMPILING_AVR_LIBC__
+@@ -86,6 +86,9 @@ endif	# attiny44
+ if HAS_attiny44a
+   AVRLIB_DEVLIST += attiny44a
+ endif	# attiny44a
++if HAS_attiny441
++  AVRLIB_DEVLIST += attiny441
++endif	# attiny441
+ if HAS_attiny45
+   AVRLIB_DEVLIST += attiny45
+ endif	# attiny45
+@@ -107,6 +110,9 @@ endif	# attiny84
+ if HAS_attiny84a
+   AVRLIB_DEVLIST += attiny84a
+ endif	# attiny84a
++if HAS_attiny841
++  AVRLIB_DEVLIST += attiny841
++endif	# attiny841
+ if HAS_attiny85
+   AVRLIB_DEVLIST += attiny85
+ endif	# attiny85
 diff -rupN avr-libc-1.8.1/avr/lib/avr25/attiny441/Makefile.am avr-libc-1.8.1-patched/avr/lib/avr25/attiny441/Makefile.am
---- avr-libc-1.8.1/avr/lib/avr25/attiny441/Makefile.am	1970-01-01 01:00:00.000000000 +0100
-+++ avr-libc-1.8.1-patched/avr/lib/avr25/attiny441/Makefile.am	2014-12-18 21:53:12.000000000 +0100
+--- avr-libc-1.8.1/avr/lib/avr25/attiny441/Makefile.am	1970-01-01 02:00:00.000000000 +0200
++++ avr-libc-1.8.1-patched/avr/lib/avr25/attiny441/Makefile.am	2015-02-17 21:23:47.000000000 +0200
 @@ -0,0 +1,70 @@
 +# Copyright (c) 2004,  Theodore A. Roth
 +# Copyright (c) 2005, 2008  Anatoly Sokolov
@@ -73,8 +105,8 @@ diff -rupN avr-libc-1.8.1/avr/lib/avr25/attiny441/Makefile.am avr-libc-1.8.1-pat
 +
 +endif
 diff -rupN avr-libc-1.8.1/avr/lib/avr25/attiny841/Makefile.am avr-libc-1.8.1-patched/avr/lib/avr25/attiny841/Makefile.am
---- avr-libc-1.8.1/avr/lib/avr25/attiny841/Makefile.am	1970-01-01 01:00:00.000000000 +0100
-+++ avr-libc-1.8.1-patched/avr/lib/avr25/attiny841/Makefile.am	2014-12-18 21:53:12.000000000 +0100
+--- avr-libc-1.8.1/avr/lib/avr25/attiny841/Makefile.am	1970-01-01 02:00:00.000000000 +0200
++++ avr-libc-1.8.1-patched/avr/lib/avr25/attiny841/Makefile.am	2015-02-17 21:23:47.000000000 +0200
 @@ -0,0 +1,70 @@
 +# Copyright (c) 2004,  Theodore A. Roth
 +# Copyright (c) 2005, 2008  Anatoly Sokolov
@@ -146,41 +178,153 @@ diff -rupN avr-libc-1.8.1/avr/lib/avr25/attiny841/Makefile.am avr-libc-1.8.1-pat
 +echo all distdir install installdirs clean distclean uninstall check:
 +
 +endif
-diff -rupN avr-libc-1.8.1/avr/lib/avr25/Makefile.am avr-libc-1.8.1-patched/avr/lib/avr25/Makefile.am
---- avr-libc-1.8.1/avr/lib/avr25/Makefile.am	2014-08-12 21:08:19.000000000 +0200
-+++ avr-libc-1.8.1-patched/avr/lib/avr25/Makefile.am	2014-12-18 21:53:12.000000000 +0100
-@@ -28,7 +28,7 @@
- # POSSIBILITY OF SUCH DAMAGE.
- #
+diff -rupN avr-libc-1.8.1/configure avr-libc-1.8.1-patched/configure
+--- avr-libc-1.8.1/configure	2014-08-12 22:08:26.000000000 +0300
++++ avr-libc-1.8.1-patched/configure	2015-02-17 21:23:53.000000000 +0200
+@@ -1007,6 +1007,8 @@ HAS_attiny861_FALSE
+ HAS_attiny861_TRUE
+ HAS_attiny85_FALSE
+ HAS_attiny85_TRUE
++HAS_attiny841_FALSE
++HAS_attiny841_TRUE
+ HAS_attiny84a_FALSE
+ HAS_attiny84a_TRUE
+ HAS_attiny84_FALSE
+@@ -1021,6 +1023,8 @@ HAS_attiny461_FALSE
+ HAS_attiny461_TRUE
+ HAS_attiny45_FALSE
+ HAS_attiny45_TRUE
++HAS_attiny441_FALSE
++HAS_attiny441_TRUE
+ HAS_attiny44a_FALSE
+ HAS_attiny44a_TRUE
+ HAS_attiny44_FALSE
+@@ -2518,7 +2522,7 @@ esac
  
--SUBDIRS =  at86rf401 ata5272 attiny13 attiny13a attiny2313 attiny2313a attiny24 attiny24a attiny25 attiny261 attiny261a attiny4313 attiny43u attiny44 attiny44a attiny45 attiny461 attiny461a attiny48 attiny828 attiny84 attiny84a attiny85 attiny861 attiny861a attiny87 attiny88
-+SUBDIRS =  at86rf401 ata5272 attiny13 attiny13a attiny2313 attiny2313a attiny24 attiny24a attiny25 attiny261 attiny261a attiny4313 attiny43u attiny44 attiny44a attiny441 attiny45 attiny461 attiny461a attiny48 attiny828 attiny84 attiny84a attiny841 attiny85 attiny861 attiny861a attiny87 attiny88
  
- AVR_TARGET          = avr25
- AVR_TARGET_DEFS     = -D__COMPILING_AVR_LIBC__
-@@ -86,6 +86,9 @@ endif	# attiny44
- if HAS_attiny44a
-   AVRLIB_DEVLIST += attiny44a
- endif	# attiny44a
-+if HAS_attiny441
-+  AVRLIB_DEVLIST += attiny441
-+endif	# attiny441
- if HAS_attiny45
-   AVRLIB_DEVLIST += attiny45
- endif	# attiny45
-@@ -107,6 +110,9 @@ endif	# attiny84
- if HAS_attiny84a
-   AVRLIB_DEVLIST += attiny84a
- endif	# attiny84a
-+if HAS_attiny841
-+  AVRLIB_DEVLIST += attiny841
-+endif	# attiny841
- if HAS_attiny85
-   AVRLIB_DEVLIST += attiny85
- endif	# attiny85
+ 
+-am__api_version='1.14'
++am__api_version='1.15'
+ 
+ # Find a good install program.  We prefer a C program (faster),
+ # so one script is as good as another.  But avoid the broken or
+@@ -5930,6 +5934,80 @@ fi
+ 
+     old_CC=${CC}
+     old_CFLAGS=${CFLAGS}
++    CFLAGS="-mmcu=attiny841"
++    CC=`echo "${CC}" | sed 's/-mmcu=avr.//'`
++    { $as_echo "$as_me:${as_lineno-$LINENO}: checking if ${CC} has support for attiny841" >&5
++$as_echo_n "checking if ${CC} has support for attiny841... " >&6; }
++    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++/* end confdefs.h.  */
++
++_ACEOF
++if ac_fn_c_try_compile "$LINENO"; then :
++  has_dev_support=yes
++else
++  has_dev_support=no
++
++fi
++rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
++    if test "x$has_dev_support" = "xyes"
++    then
++      HAS_attiny841=yes
++    fi
++    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $has_dev_support" >&5
++$as_echo "$has_dev_support" >&6; }
++    CC=${old_CC}
++    CFLAGS=${old_CFLAGS}
++
++
++ if test "x$HAS_attiny841" = "xyes"; then
++  HAS_attiny841_TRUE=
++  HAS_attiny841_FALSE='#'
++else
++  HAS_attiny841_TRUE='#'
++  HAS_attiny841_FALSE=
++fi
++
++
++
++    old_CC=${CC}
++    old_CFLAGS=${CFLAGS}
++    CFLAGS="-mmcu=attiny441"
++    CC=`echo "${CC}" | sed 's/-mmcu=avr.//'`
++    { $as_echo "$as_me:${as_lineno-$LINENO}: checking if ${CC} has support for attiny441" >&5
++$as_echo_n "checking if ${CC} has support for attiny441... " >&6; }
++    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++/* end confdefs.h.  */
++
++_ACEOF
++if ac_fn_c_try_compile "$LINENO"; then :
++  has_dev_support=yes
++else
++  has_dev_support=no
++
++fi
++rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
++    if test "x$has_dev_support" = "xyes"
++    then
++      HAS_attiny441=yes
++    fi
++    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $has_dev_support" >&5
++$as_echo "$has_dev_support" >&6; }
++    CC=${old_CC}
++    CFLAGS=${old_CFLAGS}
++
++
++ if test "x$HAS_attiny441" = "xyes"; then
++  HAS_attiny441_TRUE=
++  HAS_attiny441_FALSE='#'
++else
++  HAS_attiny441_TRUE='#'
++  HAS_attiny441_FALSE=
++fi
++
++
++
++    old_CC=${CC}
++    old_CFLAGS=${CFLAGS}
+     CFLAGS="-mmcu=attiny85"
+     CC=`echo "${CC}" | sed 's/-mmcu=avr.//'`
+     { $as_echo "$as_me:${as_lineno-$LINENO}: checking if ${CC} has support for attiny85" >&5
+@@ -13351,7 +13429,7 @@ ac_config_files="$ac_config_files avr/li
+ 
+ 
+ #avr25
+-ac_config_files="$ac_config_files avr/lib/avr25/Makefile avr/lib/avr25/at86rf401/Makefile avr/lib/avr25/ata5272/Makefile avr/lib/avr25/attiny13/Makefile avr/lib/avr25/attiny13a/Makefile avr/lib/avr25/attiny2313/Makefile avr/lib/avr25/attiny2313a/Makefile avr/lib/avr25/attiny24/Makefile avr/lib/avr25/attiny24a/Makefile avr/lib/avr25/attiny25/Makefile avr/lib/avr25/attiny261/Makefile avr/lib/avr25/attiny261a/Makefile avr/lib/avr25/attiny4313/Makefile avr/lib/avr25/attiny43u/Makefile avr/lib/avr25/attiny44/Makefile avr/lib/avr25/attiny44a/Makefile avr/lib/avr25/attiny45/Makefile avr/lib/avr25/attiny461/Makefile avr/lib/avr25/attiny461a/Makefile avr/lib/avr25/attiny48/Makefile avr/lib/avr25/attiny828/Makefile avr/lib/avr25/attiny84/Makefile avr/lib/avr25/attiny84a/Makefile avr/lib/avr25/attiny85/Makefile avr/lib/avr25/attiny861/Makefile avr/lib/avr25/attiny861a/Makefile avr/lib/avr25/attiny87/Makefile avr/lib/avr25/attiny88/Makefile"
++ac_config_files="$ac_config_files avr/lib/avr25/Makefile avr/lib/avr25/at86rf401/Makefile avr/lib/avr25/ata5272/Makefile avr/lib/avr25/attiny13/Makefile avr/lib/avr25/attiny13a/Makefile avr/lib/avr25/attiny2313/Makefile avr/lib/avr25/attiny2313a/Makefile avr/lib/avr25/attiny24/Makefile avr/lib/avr25/attiny24a/Makefile avr/lib/avr25/attiny25/Makefile avr/lib/avr25/attiny261/Makefile avr/lib/avr25/attiny261a/Makefile avr/lib/avr25/attiny4313/Makefile avr/lib/avr25/attiny43u/Makefile avr/lib/avr25/attiny44/Makefile avr/lib/avr25/attiny44a/Makefile avr/lib/avr25/attiny45/Makefile avr/lib/avr25/attiny461/Makefile avr/lib/avr25/attiny461a/Makefile avr/lib/avr25/attiny48/Makefile avr/lib/avr25/attiny828/Makefile avr/lib/avr25/attiny84/Makefile avr/lib/avr25/attiny84a/Makefile avr/lib/avr25/attiny85/Makefile avr/lib/avr25/attiny861/Makefile avr/lib/avr25/attiny861a/Makefile avr/lib/avr25/attiny87/Makefile avr/lib/avr25/attiny88/Makefile avr/lib/avr25/attiny841/Makefile avr/lib/avr25/attiny441/Makefile"
+ 
+ 
+ #avr25/tiny-stack
+@@ -13721,6 +13799,14 @@ if test -z "${HAS_attiny861_TRUE}" && te
+   as_fn_error $? "conditional \"HAS_attiny861\" was never defined.
+ Usually this means the macro was only invoked conditionally." "$LINENO" 5
+ fi
++if test -z "${HAS_attiny841_TRUE}" && test -z "${HAS_attiny841_FALSE}"; then
++  as_fn_error $? "conditional \"HAS_attiny841\" was never defined.
++Usually this means the macro was only invoked conditionally." "$LINENO" 5
++fi
++if test -z "${HAS_attiny441_TRUE}" && test -z "${HAS_attiny441_FALSE}"; then
++  as_fn_error $? "conditional \"HAS_attiny441\" was never defined.
++Usually this means the macro was only invoked conditionally." "$LINENO" 5
++fi
+ if test -z "${HAS_attiny861a_TRUE}" && test -z "${HAS_attiny861a_FALSE}"; then
+   as_fn_error $? "conditional \"HAS_attiny861a\" was never defined.
+ Usually this means the macro was only invoked conditionally." "$LINENO" 5
+@@ -15229,6 +15315,8 @@ do
+     "avr/lib/avr25/attiny84/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny84/Makefile" ;;
+     "avr/lib/avr25/attiny84a/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny84a/Makefile" ;;
+     "avr/lib/avr25/attiny85/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny85/Makefile" ;;
++    "avr/lib/avr25/attiny441/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny441/Makefile" ;;
++    "avr/lib/avr25/attiny841/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny841/Makefile" ;;
+     "avr/lib/avr25/attiny861/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny861/Makefile" ;;
+     "avr/lib/avr25/attiny861a/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny861a/Makefile" ;;
+     "avr/lib/avr25/attiny87/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr25/attiny87/Makefile" ;;
 diff -rupN avr-libc-1.8.1/configure.ac avr-libc-1.8.1-patched/configure.ac
---- avr-libc-1.8.1/configure.ac	2014-08-12 21:06:10.000000000 +0200
-+++ avr-libc-1.8.1-patched/configure.ac	2014-12-18 13:30:07.000000000 +0100
+--- avr-libc-1.8.1/configure.ac	2014-08-12 22:06:10.000000000 +0300
++++ avr-libc-1.8.1-patched/configure.ac	2015-02-17 21:23:47.000000000 +0200
 @@ -525,6 +525,9 @@ AM_CONDITIONAL(HAS_attiny44, test "x$HAS
  CHECK_AVR_DEVICE(attiny44a)
  AM_CONDITIONAL(HAS_attiny44a, test "x$HAS_attiny44a" = "xyes")
@@ -218,8 +362,8 @@ diff -rupN avr-libc-1.8.1/configure.ac avr-libc-1.8.1-patched/configure.ac
  	avr/lib/avr25/attiny861/Makefile
  	avr/lib/avr25/attiny861a/Makefile
 diff -rupN avr-libc-1.8.1/crt1/iosym/attiny441.S avr-libc-1.8.1-patched/crt1/iosym/attiny441.S
---- avr-libc-1.8.1/crt1/iosym/attiny441.S	1970-01-01 01:00:00.000000000 +0100
-+++ avr-libc-1.8.1-patched/crt1/iosym/attiny441.S	2014-12-18 21:28:43.000000000 +0100
+--- avr-libc-1.8.1/crt1/iosym/attiny441.S	1970-01-01 02:00:00.000000000 +0200
++++ avr-libc-1.8.1-patched/crt1/iosym/attiny441.S	2015-02-17 21:23:47.000000000 +0200
 @@ -0,0 +1,5859 @@
 +/* This file is part of avr-libc.
 +
@@ -6081,8 +6225,8 @@ diff -rupN avr-libc-1.8.1/crt1/iosym/attiny441.S avr-libc-1.8.1-patched/crt1/ios
 +	.uleb128	0
 +.Leinfo:
 diff -rupN avr-libc-1.8.1/crt1/iosym/attiny841.S avr-libc-1.8.1-patched/crt1/iosym/attiny841.S
---- avr-libc-1.8.1/crt1/iosym/attiny841.S	1970-01-01 01:00:00.000000000 +0100
-+++ avr-libc-1.8.1-patched/crt1/iosym/attiny841.S	2014-12-18 21:28:43.000000000 +0100
+--- avr-libc-1.8.1/crt1/iosym/attiny841.S	1970-01-01 02:00:00.000000000 +0200
++++ avr-libc-1.8.1-patched/crt1/iosym/attiny841.S	2015-02-17 21:23:47.000000000 +0200
 @@ -0,0 +1,5859 @@
 +/* This file is part of avr-libc.
 +
@@ -11944,8 +12088,8 @@ diff -rupN avr-libc-1.8.1/crt1/iosym/attiny841.S avr-libc-1.8.1-patched/crt1/ios
 +	.uleb128	0
 +.Leinfo:
 diff -rupN avr-libc-1.8.1/devtools/gen-avr-lib-tree.sh avr-libc-1.8.1-patched/devtools/gen-avr-lib-tree.sh
---- avr-libc-1.8.1/devtools/gen-avr-lib-tree.sh	2014-08-12 21:06:08.000000000 +0200
-+++ avr-libc-1.8.1-patched/devtools/gen-avr-lib-tree.sh	2014-12-18 13:37:35.000000000 +0100
+--- avr-libc-1.8.1/devtools/gen-avr-lib-tree.sh	2014-08-12 22:06:08.000000000 +0300
++++ avr-libc-1.8.1-patched/devtools/gen-avr-lib-tree.sh	2015-02-17 21:23:47.000000000 +0200
 @@ -110,6 +110,7 @@ attiny4313:crttn4313.o:${DEV_DEFS}:${CFL
  attiny43u:crttn43u.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
  attiny44:crttn44.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
@@ -11962,9 +12106,28 @@ diff -rupN avr-libc-1.8.1/devtools/gen-avr-lib-tree.sh avr-libc-1.8.1-patched/de
  attiny85:crttn85.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
  attiny861:crttn861.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
  attiny861a:crttn861a.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
+diff -rupN avr-libc-1.8.1/include/avr/Makefile.am avr-libc-1.8.1-patched/include/avr/Makefile.am
+--- avr-libc-1.8.1/include/avr/Makefile.am	2014-08-12 22:06:23.000000000 +0300
++++ avr-libc-1.8.1-patched/include/avr/Makefile.am	2015-02-17 21:23:47.000000000 +0200
+@@ -196,6 +196,7 @@ avr_HEADERS = \
+     iotn43u.h \
+     iotn44.h \
+     iotn44a.h \
++    iotn441.h \
+     iotn45.h \
+     iotn461.h \
+     iotn461a.h \
+@@ -203,6 +204,7 @@ avr_HEADERS = \
+     iotn88.h \
+     iotn84.h \
+     iotn84a.h \
++    iotn841.h \
+     iotn85.h \
+     iotn861.h \
+     iotn861a.h \
 diff -rupN avr-libc-1.8.1/include/avr/io.h avr-libc-1.8.1-patched/include/avr/io.h
---- avr-libc-1.8.1/include/avr/io.h	2014-08-12 21:06:23.000000000 +0200
-+++ avr-libc-1.8.1-patched/include/avr/io.h	2014-12-18 21:52:28.000000000 +0100
+--- avr-libc-1.8.1/include/avr/io.h	2014-08-12 22:06:23.000000000 +0300
++++ avr-libc-1.8.1-patched/include/avr/io.h	2015-02-17 21:23:47.000000000 +0200
 @@ -386,10 +386,14 @@
  #  include <avr/iotn44.h>
  #elif defined (__AVR_ATtiny44A__)
@@ -11981,8 +12144,8 @@ diff -rupN avr-libc-1.8.1/include/avr/io.h avr-libc-1.8.1-patched/include/avr/io
  #  include <avr/iotn261.h>
  #elif defined (__AVR_ATtiny261A__)
 diff -rupN avr-libc-1.8.1/include/avr/iotn441.h avr-libc-1.8.1-patched/include/avr/iotn441.h
---- avr-libc-1.8.1/include/avr/iotn441.h	1970-01-01 01:00:00.000000000 +0100
-+++ avr-libc-1.8.1-patched/include/avr/iotn441.h	2014-10-07 15:19:08.000000000 +0200
+--- avr-libc-1.8.1/include/avr/iotn441.h	1970-01-01 02:00:00.000000000 +0200
++++ avr-libc-1.8.1-patched/include/avr/iotn441.h	2015-02-17 21:23:47.000000000 +0200
 @@ -0,0 +1,843 @@
 +/*****************************************************************************
 + *
@@ -12828,8 +12991,8 @@ diff -rupN avr-libc-1.8.1/include/avr/iotn441.h avr-libc-1.8.1-patched/include/a
 +#endif /* #ifdef _AVR_ATTINY441_H_INCLUDED */
 +
 diff -rupN avr-libc-1.8.1/include/avr/iotn841.h avr-libc-1.8.1-patched/include/avr/iotn841.h
---- avr-libc-1.8.1/include/avr/iotn841.h	1970-01-01 01:00:00.000000000 +0100
-+++ avr-libc-1.8.1-patched/include/avr/iotn841.h	2014-10-07 15:19:08.000000000 +0200
+--- avr-libc-1.8.1/include/avr/iotn841.h	1970-01-01 02:00:00.000000000 +0200
++++ avr-libc-1.8.1-patched/include/avr/iotn841.h	2015-02-17 21:23:47.000000000 +0200
 @@ -0,0 +1,843 @@
 +/*****************************************************************************
 + *
@@ -13674,22 +13837,3 @@ diff -rupN avr-libc-1.8.1/include/avr/iotn841.h avr-libc-1.8.1-patched/include/a
 +
 +#endif /* #ifdef _AVR_ATTINY841_H_INCLUDED */
 +
-diff -rupN avr-libc-1.8.1/include/avr/Makefile.am avr-libc-1.8.1-patched/include/avr/Makefile.am
---- avr-libc-1.8.1/include/avr/Makefile.am	2014-08-12 21:06:23.000000000 +0200
-+++ avr-libc-1.8.1-patched/include/avr/Makefile.am	2014-12-18 22:09:07.000000000 +0100
-@@ -196,6 +196,7 @@ avr_HEADERS = \
-     iotn43u.h \
-     iotn44.h \
-     iotn44a.h \
-+    iotn441.h \
-     iotn45.h \
-     iotn461.h \
-     iotn461a.h \
-@@ -203,6 +204,7 @@ avr_HEADERS = \
-     iotn88.h \
-     iotn84.h \
-     iotn84a.h \
-+    iotn841.h \
-     iotn85.h \
-     iotn861.h \
-     iotn861a.h \
