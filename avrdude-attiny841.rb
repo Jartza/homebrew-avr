@@ -1,6 +1,7 @@
 require 'formula'
 
 class AvrdudeAttiny841 < Formula
+    url ''
     depends_on 'avrdude'
 
     def install
