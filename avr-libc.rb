@@ -10,7 +10,7 @@ class AvrLibc < Formula
 
     patch do
         url "https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avr-libc/tiny441-tiny841.patch"
-        sha1 "0c503c63b383f8c2a16e29596553cd5037a07fae"
+        sha1 "8e1cdb49746048a91cfeddbd81d9138309b25daa"
     end
 
 
@@ -26,7 +26,8 @@ class AvrLibc < Formula
         build = `./config.guess`.chomp
 
         system "./configure", "--build=#{build}", "--prefix=#{prefix}", "--host=avr"
-        system "make"
+        system "make clean-am"
+        system "./configure", "--build=#{build}", "--prefix=#{prefix}", "--host=avr"
         system "make install"
 
         avr = File.join prefix, 'avr'
