@@ -6,6 +6,8 @@ class AvrLibc < Formula
     homepage 'http://www.nongnu.org/avr-libc/'
     sha256 'c3062a481b6b2c6959dc708571c00b0e26301897ba21171ed92acd0af7c4a969'
 
+    depends_on 'automake'
+    depends_on 'autoconf'
     depends_on 'avr-gcc'
 
     patch do
