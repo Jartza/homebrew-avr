@@ -1,7 +1,7 @@
 require 'formula'
 
 class AvrdudeAttiny841 < Formula
-    url 'https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avrdude/avrduderc.tgz'
+    url 'https://github.com/Jartza/homebrew-avr/raw/master/patches/avrdude/avrdude.tgz'
     version '0.1'
     depends_on 'avrdude'
 
