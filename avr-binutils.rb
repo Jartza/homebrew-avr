@@ -7,6 +7,10 @@ class AvrBinutils < Formula
     mirror 'http://ftp.gnu.org/gnu/binutils/binutils-2.25.tar.gz'
     sha1 'f10c64e92d9c72ee428df3feaf349c4ecb2493bd'
 
+    depends_on 'autoconf'
+    depends_on 'automake'
+
+
     # Support for -C in avr-size. See issue
     # https://github.com/larsimmisch/homebrew-avr/issues/9
     patch :p0 do
