@@ -1,10 +1,13 @@
 require 'formula'
 
 class AvrdudeAttiny841 < Formula
-    url ''
+    url 'https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avrdude/avrduderc'
     depends_on 'avrdude'
 
     def install
-        system "https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avrdude/avrduderc >> ~/.avrduderc"
+        mkdir 'build' do
+            system "cat ../avrduderc >> ~/.avrduderc"
+        end
+
     end
 end
