@@ -21,7 +21,7 @@ class AvrGcc < Formula
     option 'disable-cxx', 'Don\'t build the g++ compiler'
 
     patch do
-        url "patches/avr-gcc/tiny441-tiny841.patch"
+        url "file://patches/avr-gcc/tiny441-tiny841.patch"
         sha1 "eb669f806aa2cd43dec04ad11450337783a6da19"
     end
 
