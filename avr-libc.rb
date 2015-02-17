@@ -7,6 +7,8 @@ class AvrLibc < Formula
     sha256 'c3062a481b6b2c6959dc708571c00b0e26301897ba21171ed92acd0af7c4a969'
 
     depends_on 'avr-gcc'
+    depends_on 'autoconf'
+    depends_on 'm4'
 
     patch do
         url "https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avr-libc/tiny441-tiny841.patch"
