@@ -27,8 +27,13 @@ To install the entire AVR toolchain, do:
 # to tap the repository
 $ brew tap Jartza/homebrew-avr
 
-# to install the avr-gcc
+# to install the avr-gcc & avr-libc & avr-binutils
+# This will pull in the prerequisites `avr-binutils` and `avr-gcc`.
 $ brew install avr-libc
+
+# add Attiny841 to your avrdude (adds to your ~/.avrduderc)
+$ brew install avrdude-attiny841
+
 ```
 
 This will pull in the prerequisites `avr-binutils` and `avr-gcc`.
