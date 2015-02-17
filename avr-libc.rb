@@ -10,7 +10,7 @@ class AvrLibc < Formula
 
     patch do
         url "https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avr-libc/tiny441-tiny841.patch"
-        sha1 "91134ef9b905cbcfca2eb0b4aa845f6fa4a9912f"
+        sha1 "0c503c63b383f8c2a16e29596553cd5037a07fae"
     end
 
 
