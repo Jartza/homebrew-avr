@@ -32,7 +32,7 @@ class AvrBinutils < Formula
 
         mkdir 'build' do
             system "../configure", *args
-
+            system "make"
             system "make install"
         end
 
