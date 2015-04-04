@@ -35,7 +35,6 @@ class AvrGcc < Formula
             "--with-as=#{Formula["avr-binutils"].opt_bin/'avr-as'}",
 
             "--disable-nls",
-            "--disable-shared",
             "--disable-threads",
             "--disable-libssp",
             "--disable-libstdcxx-pch",
@@ -49,7 +48,7 @@ class AvrGcc < Formula
             "--with-system-zlib"
         ]
 
-        mkdir 'build' do
+        mkdir 'build-gcc' do
             system "../configure", *args
             system "make"
 

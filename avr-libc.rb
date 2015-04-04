@@ -21,12 +21,9 @@ class AvrLibc < Formula
 
         build = `./config.guess`.chomp
 
-        system "./bootstrap"
-        mkdir 'build-libc' do
-            system "./configure", "--build=#{build}", "--prefix=#{prefix}", "--host=avr"
-            system "make"
-            system "make install"
-        end
+        system "./configure", "--build=#{build}", "--prefix=#{prefix}", "--host=avr"
+        system "make"
+        system "make install"
 
         avr = File.join prefix, 'avr'
 
