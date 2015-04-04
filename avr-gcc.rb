@@ -55,6 +55,9 @@ class AvrGcc < Formula
 
             ENV.deparallelize
             system "make install"
+
+            multios = `gcc --print-multi-os-dir`.chomp
+            File.unlink "#{prefix}/lib/#{multios}/libiberty.a"
         end
 
         # info and man7 files conflict with native gcc
