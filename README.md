@@ -40,8 +40,6 @@ $ brew install avrdude-attiny841
 
 ```
 
-This will pull in the prerequisites `avr-binutils` and `avr-gcc`.
-
 Docs
 ----
 
