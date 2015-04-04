@@ -35,7 +35,7 @@ $ brew tap Jartza/homebrew-avr
 # This will pull in the prerequisites `avr-binutils` and `avr-gcc`.
 $ brew install avr-libc
 
-# add Attiny841 to your avrdude (adds to your ~/.avrduderc)
+# OPTIONAL: add Attiny841 to your avrdude (adds to your ~/.avrduderc)
 $ brew install avrdude-attiny841
 
 ```
