@@ -2,19 +2,13 @@ require 'formula'
 
 class AvrLibc < Formula
 
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-1.8.1.tar.bz2'
     homepage 'http://www.nongnu.org/avr-libc/'
-    sha256 'c3062a481b6b2c6959dc708571c00b0e26301897ba21171ed92acd0af7c4a969'
+    url 'http://distribute.atmel.no/tools/opensource/Atmel-AVR-GNU-Toolchain/3.4.5/avr-libc-1.8.0.tar.bz2'
+    sha256 '50cc44ab106abadf0a11f7ce81af68d6706fcf14bcb50cbe7c4b48090a3e7314'
 
     depends_on 'automake'
     depends_on 'autoconf'
     depends_on 'avr-gcc'
-
-    patch do
-        url "https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avr-libc/tiny441-tiny841.patch"
-        sha1 "1f3102ba4fcc140d34cedefeb2021703d8acd6e7"
-    end
-
 
     def install
         ENV.delete 'CFLAGS'

@@ -6,9 +6,8 @@ require 'formula'
 class AvrGcc < Formula
 
     homepage 'http://www.gnu.org/software/gcc/gcc.html'
-    url 'http://gnu.cardse.net/gcc/gcc-4.9.2/gcc-4.9.2.tar.bz2'
-    mirror 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.9.2/gcc-4.9.2.tar.bz2'
-    sha256 '2020c98295856aa13fda0f2f3a4794490757fc24bcca918d52cc8b4917b972dd'
+    url 'http://distribute.atmel.no/tools/opensource/Atmel-AVR-GNU-Toolchain/3.4.5/avr-gcc-4.8.1.tar.bz2'
+    sha256 '6341fa47471a10bcf2a96c748e3333507e7d00866b210199444e4a59868b284c'
 
     depends_on 'gmp'
     depends_on 'libmpc'
@@ -19,12 +18,6 @@ class AvrGcc < Formula
     depends_on 'avr-binutils'
 
     option 'disable-cxx', 'Don\'t build the g++ compiler'
-
-    patch do
-        url "https://raw.githubusercontent.com/Jartza/homebrew-avr/master/patches/avr-gcc/tiny441-tiny841.patch"
-        sha1 "eb669f806aa2cd43dec04ad11450337783a6da19"
-    end
-
 
     def install
         # The C compiler is always built, C++ can be disabled
