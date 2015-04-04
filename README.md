@@ -28,6 +28,9 @@ First, just `brew tap Jartza/homebrew-avr` and then `brew install <formula>`.
 To install the entire AVR toolchain, do:
 
 ```Bash
+# not necessary if you're up to date already
+$ brew update && brew upgrade
+
 # to tap the repository
 $ brew tap Jartza/homebrew-avr
 
