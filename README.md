@@ -54,6 +54,7 @@ This repository is based on the works of:
 - [plietar](https://github.com/plietar/homebrew-avr/)
 - [0xPIT](https://github.com/0xPIT/homebrew-avr)
 - [fmfi-svt-gate](https://github.com/fmfi-svt-gate/avr-toolchain-patches)
+- [Atmel](http://atmel.com/)
 
 
 [Homebrew]: https://github.com/mxcl/homebrew
