@@ -24,17 +24,9 @@ class AvrLibc < Formula
         build = `./config.guess`.chomp
 
         mkdir 'build-libc' do
-            system "../configure", "--build=#{build}", "--prefix=#{prefix}", "--host=avr"
+            system "../configure", "--build=#{build}", "--prefix=#{Formula["avr-gcc"].prefix}", "--host=avr"
             system "make"
             system "make install"
         end
-
-        avr = File.join prefix, 'avr'
-
-        # copy include and lib files where avr-gcc searches for them
-        # this wouldn't be necessary with a standard prefix
-        ohai "copying #{avr} -> #{avr_gcc.prefix}"
-        cp_r avr, avr_gcc.prefix
-
     end
 end
