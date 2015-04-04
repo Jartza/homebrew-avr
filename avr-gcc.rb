@@ -44,9 +44,8 @@ class AvrGcc < Formula
             "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
             "--with-mpc=#{Formula["libmpc"].opt_prefix}",
             "--with-cloog=#{Formula["cloog"].opt_prefix}",
-            "--with-isl=#{Formula["isl"].opt_prefix}",
-            "--with-system-zlib",
-            "--with-isl-prefix=/usr/local/opt/isl011"
+            "--with-isl=#{Formula["isl011"].opt_prefix}",
+            "--with-system-zlib"
         ]
 
         mkdir 'build-gcc' do
