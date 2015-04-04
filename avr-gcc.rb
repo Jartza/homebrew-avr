@@ -13,7 +13,7 @@ class AvrGcc < Formula
     depends_on 'libmpc'
     depends_on 'mpfr'
     depends_on 'cloog'
-    depends_on 'homebrew/versions/isl011'
+    depends_on 'isl011'
 
     depends_on 'avr-binutils'
 
