@@ -1,8 +1,8 @@
 homebrew-avr
 ============
 
-This repository contains the "official" Atmel GNU AVR Toolchain as
-formulae for [Homebrew][].
+This repository contains the "official" Atmel GNU AVR Toolchain v3.4.5
+as formulae for [Homebrew][].
 
 Additional configuration for avrdude for Attiny841 is also included.
 
