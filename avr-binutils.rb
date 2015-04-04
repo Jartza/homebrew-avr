@@ -21,7 +21,7 @@ class AvrBinutils < Formula
             "--disable-nls"
         ]
 
-        mkdir 'build' do
+        mkdir 'build-binutils' do
             system "../configure", *args
             system "make"
             system "make install"
