@@ -39,6 +39,7 @@ class AvrGcc < Formula
             "--disable-libssp",
             "--disable-libstdcxx-pch",
             "--disable-libgomp",
+            "--disable-install-libiberty",
 
             "--with-gmp=#{Formula["gmp"].opt_prefix}",
             "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
