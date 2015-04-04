@@ -56,7 +56,7 @@ class AvrGcc < Formula
             ENV.deparallelize
             system "make install"
 
-            multios = `gcc --print-multi-os-dir`.chomp
+            multios = `gcc --print-multi-os-directory`.chomp
             File.unlink "#{prefix}/lib/#{multios}/libiberty.a"
         end
 
