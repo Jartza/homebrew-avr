@@ -19,6 +19,8 @@ class AvrLibc < Formula
 
         avr_gcc = Formula['avr-gcc']
 
+        Dir.chdir('avr-libc')
+
         system "./bootstrap"
 
         build = `./config.guess`.chomp
