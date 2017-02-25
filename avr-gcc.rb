@@ -6,8 +6,8 @@ require 'formula'
 class AvrGcc < Formula
 
     homepage 'http://www.gnu.org/software/gcc/gcc.html'
-    url 'http://distribute.atmel.no/tools/opensource/Atmel-AVR-GNU-Toolchain/3.4.5/avr-gcc-4.8.1.tar.bz2'
-    sha256 '6341fa47471a10bcf2a96c748e3333507e7d00866b210199444e4a59868b284c'
+    url 'http://distribute.atmel.no/tools/opensource/Atmel-AVR-GNU-Toolchain/3.5.4/avr-gcc.tar.bz2'
+    sha256 'aef6485df226c9bfb9a3c986f98bc1de3ab4e36f8fdae660ac17708fba6273a4'
 
     depends_on 'gmp'
     depends_on 'libmpc'

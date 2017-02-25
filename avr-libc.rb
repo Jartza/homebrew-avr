@@ -3,8 +3,8 @@ require 'formula'
 class AvrLibc < Formula
 
     homepage 'http://www.nongnu.org/avr-libc/'
-    url 'http://distribute.atmel.no/tools/opensource/Atmel-AVR-GNU-Toolchain/3.4.5/avr-libc-1.8.0.tar.bz2'
-    sha256 '50cc44ab106abadf0a11f7ce81af68d6706fcf14bcb50cbe7c4b48090a3e7314'
+    url 'http://distribute.atmel.no/tools/opensource/Atmel-AVR-GNU-Toolchain/3.5.4/avr-libc.tar.bz2'
+    sha256 '104be58d9fc96c0f3c7176bad0df316d1c014574fc5452426f5a3043f4ef648f'
 
     depends_on 'automake'
     depends_on 'autoconf'
