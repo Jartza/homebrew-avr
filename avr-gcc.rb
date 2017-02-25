@@ -39,7 +39,7 @@ class AvrGcc < Formula
             "--disable-libssp",
             "--disable-libstdcxx-pch",
             "--disable-libgomp",
-            "--disable-install-libiberty",
+            "--enable-install-libiberty",
 
             "--with-gmp=#{Formula["gmp"].opt_prefix}",
             "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
@@ -55,9 +55,6 @@ class AvrGcc < Formula
 
             ENV.deparallelize
             system "make install"
-
-            multios = `gcc --print-multi-os-directory`.chomp
-            File.unlink "#{prefix}/lib/#{multios}/libiberty.a"
         end
 
         # info and man7 files conflict with native gcc
